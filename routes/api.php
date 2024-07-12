@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\Api\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/student-list', [StudentController::class, 'index'])->name('all.students');
+Route::post('/student-create', [StudentController::class, 'store'])->name('student.store');

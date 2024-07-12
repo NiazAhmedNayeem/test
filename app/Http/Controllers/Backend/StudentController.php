@@ -47,11 +47,12 @@ class StudentController extends Controller
         $student->phone = $request->phone;
         $student->about = $request->about;
 
-        if ($request->hasFile('image')) {
-            $fileName = time() . '.' . $request->image->getClientOriginalExtension();
+        if ($request->hasFile('image')){
+            $fileName = time() . '_student_image.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('upload/student/'), $fileName);
             $student->image = $fileName;
-        }    
+        }
+
 
         $student->save();
 
@@ -92,7 +93,8 @@ class StudentController extends Controller
         $student->about = $request->about;
 
         if ($request->hasFile('image')) {
-            @unlink(public_path('/upload/student/'. $student->image));
+            // @unlink(public_path('/upload/student/'. $student->image));
+            @unlink(public_path('upload/student/'. $student->image));
             $fileName = time() . '.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('upload/student/'), $fileName);
             $student->image = $fileName;

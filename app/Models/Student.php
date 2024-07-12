@@ -10,9 +10,8 @@ class Student extends Model
     use HasFactory;
 
     public function getImageShowAttribute() {
-        return $this->image != "" ? asset('upload/student/' . $this->image) : null;
+        return $this->image != "" ? asset('upload/student/'. $this->image) : null;
     }
-
     public function class()
     {
         return $this->belongsTo(SClass::class, 'class_id', 'id');
