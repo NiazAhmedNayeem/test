@@ -20,34 +20,34 @@ class UserSeeder extends Seeder
         //     'dob' => 'Niaz A Nayeem',
         //     'password' => '12345678',
         // ]);
-        // User::create([
-        //     'name' => 'Niaz A Nayeem',
-        //     'type'=> 1,
-        //     'email' => 'niaz@gmail.com',
-        //     'dob' => '07-11-96',
-        //     'password' => Hash::make('12345678'),
-        // ]);
+        User::create([
+            'name' => 'Niaz A Nayeem',
+            'type'=> 1,
+            'email' => 'niaz@gmail.com',
+            'dob' => '07-11-96',
+            'password'=> bcrypt('12345678'),
+        ]);
 
-        $users = [
-            [
-               'name'=>'Admin',
-               'email'=>'admin@gmail.com',
-               'type'=>1,
-               'password'=> Hash::make('123456'),
-               'dob'=> '2000-01-01',
-            ],
-            [
-               'name'=>'Editor',
-               'email'=>'editor@gmail.com',
-               'type'=> 2,
-               'password'=> Hash::make('123456'),
-               'dob'=> '2000-01-01',
-            ],
+        // $users = [
+        //     [
+        //        'name'=>'Admin',
+        //        'email'=>'admin@gmail.com',
+        //        'type'=>1,
+        //        'password'=> Hash::make('123456'),
+        //        'dob'=> '2000-01-01',
+        //     ],
+        //     [
+        //        'name'=>'Editor',
+        //        'email'=>'editor@gmail.com',
+        //        'type'=> 2,
+        //        'password'=> Hash::make('123456'),
+        //        'dob'=> '2000-01-01',
+        //     ],
            
-        ];
+        // ];
 
-        foreach ($users as $key => $user) {
-            User::create($user);
-        }
+        // foreach ($users as $key => $user) {
+        //     User::create($user);
+        // }
     }
 }
